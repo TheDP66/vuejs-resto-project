@@ -23,6 +23,8 @@ export default {
         console.log("result", result);
         alert("sign-up done");
         localStorage.setItem("user-info", JSON.stringify(result.data));
+
+        this.$router.push({ name: "Home" });
       } catch (error) {
         alert("sign-up error");
       }

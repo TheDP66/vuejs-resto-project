@@ -23,6 +23,12 @@
       "email": "admin@gmail.com",
       "password": "admin",
       "id": 4
+    },
+    {
+      "name": "adsfasdf",
+      "email": "adfasd@asdf.sdf",
+      "password": "user",
+      "id": 5
     }
   ]
 }

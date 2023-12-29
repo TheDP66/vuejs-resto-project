@@ -1,48 +1,39 @@
-<script>
+<script setup>
 import axios from "axios";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 import { BE_URL } from "../const/url";
 
-export default {
-  name: "SignUp",
-  data() {
-    return {
-      name: "",
-      email: "",
-      password: "",
-    };
-  },
-  methods: {
-    async signUp() {
-      try {
-        if (this.name === "" || this.email === "" || this.password === "") {
-          throw new Error();
-        }
+const router = useRouter();
+const name = ref("");
+const email = ref("");
+const password = ref("");
 
-        const result = await axios.post(`${BE_URL}/users`, {
-          name: this.name,
-          email: this.email,
-          password: this.password,
-        });
-
-        if (result.data.length === 0) {
-          throw new Error();
-        }
-
-        alert("sign-up done");
-        localStorage.setItem("user-info", JSON.stringify(result.data));
-
-        this.$router.push({ name: "Home" });
-      } catch (error) {
-        alert("sign-up error");
-      }
-    },
-  },
-  mounted() {
-    let user = localStorage.getItem("user-info");
-    if (user) {
-      this.$router.push({ name: "Home" });
+const signUp = async () => {
+  try {
+    console.log("name.value", name.value);
+    if (name.value === "" || email.value === "" || password.value === "") {
+      throw new Error();
     }
-  },
+
+    const result = await axios.post(`${BE_URL}/users`, {
+      name: name.value,
+      email: email.value,
+      password: password.value,
+    });
+
+    if (result.data.length === 0) {
+      throw new Error();
+    }
+
+    alert("sign-up done");
+    localStorage.setItem("user-info", JSON.stringify(result.data));
+
+    router.push("/");
+  } catch (error) {
+    console.error(error);
+    alert("sign-up error");
+  }
 };
 </script>
 
@@ -51,11 +42,24 @@ export default {
   <h1>Sign Up</h1>
 
   <div class="register">
-    <input type="text" v-model="name" placeholder="Enter name" id="name" />
-    <input type="email" v-model="email" placeholder="Enter email" id="email" />
+    <input
+      type="text"
+      :value="name"
+      @input="(e) => (name = e.target.value)"
+      placeholder="Enter name"
+      id="name"
+    />
+    <input
+      type="email"
+      :value="email"
+      @input="(e) => (email = e.target.value)"
+      placeholder="Enter email"
+      id="email"
+    />
     <input
       type="password"
-      v-model="password"
+      :value="password"
+      @input="(e) => (password = e.target.value)"
       placeholder="Enter password"
       id="password"
     />

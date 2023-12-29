@@ -1,47 +1,36 @@
-<script>
+<script setup>
 import axios from "axios";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 import { BE_URL } from "../const/url";
 
-export default {
-  name: "LoginPage",
-  data() {
-    return {
-      email: "",
-      password: "",
-    };
-  },
-  methods: {
-    async logIn() {
-      try {
-        if (this.email === "" || this.password === "") {
-          throw new Error();
-        }
+const router = useRouter();
+const email = ref("");
+const password = ref("");
 
-        let result = await axios.get(
-          `${BE_URL}/users?email=${this.email}&password=${this.password}`
-        );
-
-        if (result.data.length === 0) {
-          throw new Error();
-        }
-
-        console.log("result", result);
-
-        alert("login done");
-        localStorage.setItem("user-info", JSON.stringify(result.data[0]));
-
-        this.$router.push({ name: "Home" });
-      } catch (error) {
-        alert("login error");
-      }
-    },
-  },
-  mounted() {
-    let user = localStorage.getItem("user-info");
-    if (user) {
-      this.$router.push({ name: "Home" });
+const logIn = async () => {
+  try {
+    if (email.value === "" || password.value === "") {
+      throw new Error();
     }
-  },
+
+    let result = await axios.get(
+      `${BE_URL}/users?email=${email.value}&password=${password.value}`
+    );
+
+    if (result.data.length === 0) {
+      throw new Error();
+    }
+
+    console.log("result", result);
+
+    alert("login done");
+    localStorage.setItem("user-info", JSON.stringify(result.data[0]));
+
+    router.push("/");
+  } catch (error) {
+    alert("login error");
+  }
 };
 </script>
 
@@ -50,10 +39,17 @@ export default {
   <h1>Login</h1>
 
   <div class="login">
-    <input type="email" v-model="email" placeholder="Enter email" id="email" />
+    <input
+      type="email"
+      :value="email"
+      @input="(e) => (email = e.target.value)"
+      placeholder="Enter email"
+      id="email"
+    />
     <input
       type="password"
-      v-model="password"
+      :value="password"
+      @input="(e) => (password = e.target.value)"
       placeholder="Enter password"
       id="password"
     />

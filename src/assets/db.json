@@ -47,6 +47,24 @@
       "email": "babi@babi.com",
       "password": "babi",
       "id": 9
+    },
+    {
+      "name": "User",
+      "email": "user@mail.com",
+      "password": "user",
+      "id": 10
+    },
+    {
+      "name": "Usersdfsdf",
+      "email": "user@mail.comsdf",
+      "password": "usersdfsdf",
+      "id": 11
+    },
+    {
+      "name": "User",
+      "email": "user@email.com",
+      "password": "user",
+      "id": 12
     }
   ],
   "restaurants": [

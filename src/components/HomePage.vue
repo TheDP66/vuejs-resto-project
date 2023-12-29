@@ -1,29 +1,43 @@
 <template>
-  <HeaderLayout />
   <h1>Hello {{ name }}, Welcome on Home Page</h1>
+
+  <table border="1">
+    <tr>
+      <td>Id</td>
+      <td>Name</td>
+      <td>Contact</td>
+      <td>Address</td>
+    </tr>
+    <tr v-for="restaurant in restaurants" v-bind:key="restaurant.id">
+      <td>{{ restaurant.id }}</td>
+      <td>{{ restaurant.name }}</td>
+      <td>{{ restaurant.contact }}</td>
+      <td>{{ restaurant.address }}</td>
+    </tr>
+  </table>
 </template>
 
-<script>
-import HeaderLayout from "@/layouts/HeaderLayout";
+<script setup>
+import { BE_URL } from "@/const/url";
+import axios from "axios";
+import { onMounted, ref } from "vue";
 
-export default {
-  name: "HomePage",
-  data() {
-    return {
-      name: "",
-    };
-  },
-  components: {
-    HeaderLayout,
-  },
-  mounted() {
-    let user = localStorage.getItem("user-info");
+const name = ref("");
+const restaurants = ref([]);
 
-    if (user === null) {
-      this.$router.push({ name: "SignUp" });
-    } else {
-      this.name = JSON.parse(user).name;
-    }
-  },
-};
+onMounted(async () => {
+  let user = localStorage.getItem("user-info");
+  name.value = JSON.parse(user).name;
+
+  let result = await axios.get(`${BE_URL}/restaurants`);
+  restaurants.value = result.data;
+  console.log("result", result);
+});
 </script>
+
+<style>
+td {
+  width: 160px;
+  height: 40px;
+}
+</style>

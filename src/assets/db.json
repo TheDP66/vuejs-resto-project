@@ -4,19 +4,13 @@
       "id": 1,
       "name": "user",
       "email": "user@email.com",
-      "password": "user"
+      "password": "123"
     },
     {
       "id": 2,
       "name": "user2",
       "email": "user2@email.com",
       "password": "user"
-    },
-    {
-      "name": "D P",
-      "email": "dharma66putra@gmail.com",
-      "password": "123123",
-      "id": 3
     },
     {
       "name": "admin",
@@ -29,6 +23,30 @@
       "email": "adfasd@asdf.sdf",
       "password": "user",
       "id": 5
+    },
+    {
+      "name": "User",
+      "email": "user@gmail.com",
+      "password": "123",
+      "id": 6
+    },
+    {
+      "name": "User",
+      "email": "user@gmail.com",
+      "password": "123",
+      "id": 7
+    },
+    {
+      "name": "D P",
+      "email": "dharma66putra@gmail.com",
+      "password": "123",
+      "id": 8
+    },
+    {
+      "name": "Babi Panggang",
+      "email": "babi@babi.com",
+      "password": "babi",
+      "id": 9
     }
   ]
 }

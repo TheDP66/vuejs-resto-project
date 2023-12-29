@@ -14,13 +14,20 @@ export default {
   methods: {
     async signUp() {
       try {
-        const result = await axios.post(BE_URL + "/users", {
+        if (this.name === "" || this.email === "" || this.password === "") {
+          throw new Error();
+        }
+
+        const result = await axios.post(`${BE_URL}/users`, {
           name: this.name,
           email: this.email,
           password: this.password,
         });
 
-        console.log("result", result);
+        if (result.data.length === 0) {
+          throw new Error();
+        }
+
         alert("sign-up done");
         localStorage.setItem("user-info", JSON.stringify(result.data));
 
@@ -54,6 +61,10 @@ export default {
     />
 
     <button v-on:click="signUp">Sign up</button>
+
+    <p>
+      <router-link to="/login">Login</router-link>
+    </p>
   </div>
 </template>
 

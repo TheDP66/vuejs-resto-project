@@ -48,5 +48,19 @@
       "password": "babi",
       "id": 9
     }
+  ],
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Burger King",
+      "contact": 111111,
+      "address": "Noida sector 50"
+    },
+    {
+      "name": "KFC",
+      "contact": 222222,
+      "address": "Noa burg 23",
+      "id": 2
+    }
   ]
 }

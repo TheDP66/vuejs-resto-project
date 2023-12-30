@@ -2,7 +2,7 @@
 
 ## Resume video
 
-[click here](https://youtu.be/HN4cOShQLj0?t=118)
+[click here](https://youtu.be/iu7tve3Iy2Q?t=320)
 
 ## Project setup
 

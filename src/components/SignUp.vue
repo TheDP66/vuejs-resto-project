@@ -11,7 +11,6 @@ const password = ref("");
 
 const signUp = async () => {
   try {
-    console.log("name.value", name.value);
     if (name.value === "" || email.value === "" || password.value === "") {
       throw new Error();
     }

@@ -31,7 +31,6 @@ onMounted(async () => {
 
   let result = await axios.get(`${BE_URL}/restaurants`);
   restaurants.value = result.data;
-  console.log("result", result);
 });
 </script>
 

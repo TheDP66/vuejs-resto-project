@@ -79,6 +79,24 @@
       "contact": 222222,
       "address": "Noa burg 23",
       "id": 2
+    },
+    {
+      "name": "Nasi Padang",
+      "address": "Jl. Monyet hutan",
+      "contact": "62192393124",
+      "id": 3
+    },
+    {
+      "name": "Starbucks",
+      "address": "Jl. Star",
+      "contact": "12344325",
+      "id": 4
+    },
+    {
+      "name": "Kelapa Bakar",
+      "address": "Jl. K Bakar 42",
+      "contact": "62234234234234",
+      "id": 5
     }
   ]
 }

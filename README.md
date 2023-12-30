@@ -1,8 +1,8 @@
 # resto-project
 
-## Resume video
+## Resume video [DONE]
 
-[click here](https://youtu.be/iu7tve3Iy2Q?t=320)
+[click here](https://www.youtube.com/watch?v=t3cojoA1SRQ&list=PL8p2I9GklV44m5tFH-zjCmTiHeq9GZrby&index=21&pp=iAQB)
 
 ## Project setup
 

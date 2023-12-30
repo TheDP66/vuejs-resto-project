@@ -46,7 +46,7 @@ body {
 .register button,
 .login button,
 .add button,
-.update input {
+.update button {
   width: 320px;
   height: 40px;
   border: 1px solid skyblue;

@@ -13,7 +13,6 @@ const logOut = () => {
   <header class="nav">
     <router-link :to="{ name: 'Home' }">Home</router-link>
     <router-link :to="{ name: 'Add' }">Add Restaurant</router-link>
-    <router-link :to="{ name: 'Update' }">Update Restaurant</router-link>
     <a v-on:click="logOut">Logout</a>
   </header>
 </template>

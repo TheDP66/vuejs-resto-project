@@ -36,7 +36,7 @@ const routes = [
   {
     name: "Update",
     component: UpdatePageVue,
-    path: "/update",
+    path: "/update/:id",
     meta: {
       layout: AppLayoutVue,
     },
